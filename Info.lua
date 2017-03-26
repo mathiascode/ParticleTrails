@@ -1,7 +1,7 @@
 g_PluginInfo =
 {
 	Name = "ParticleTrails",
-	Version = "1.0",
+	Version = "1.0.1",
 	Date = "2017-03-26",
 	SourceLocation = "https://github.com/mathiascode/ParticleTrails",
 	Description = [[Plugin for Cuberite that creates particle trails behind players.]],

@@ -3,6 +3,7 @@ ParticlePlayers = {}
 function Initialize(Plugin)
 	Plugin:SetName(g_PluginInfo.Name)
 
+	cPluginManager:AddHook(cPluginManager.HOOK_PLAYER_DESTROYED, OnPlayerDestroyed)
 	cPluginManager:AddHook(cPluginManager.HOOK_WORLD_TICK, OnWorldTick)
 
 	dofile(cPluginManager:GetPluginsPath() .. "/InfoReg.lua")
@@ -43,6 +44,10 @@ function HandleParticleTrailsCommand(Split, Player)
 		return true
 	end
 	return true
+end
+
+function OnPlayerDestroyed(Player)
+	ParticlePlayers[Player:GetUUID()] = nil
 end
 
 function OnWorldTick(World, TimeDelta)
