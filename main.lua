@@ -2,6 +2,7 @@ ParticlePlayers = {}
 
 function Initialize(Plugin)
 	Plugin:SetName(g_PluginInfo.Name)
+	Plugin:SetVersion(g_PluginInfo.Version)
 
 	cPluginManager:AddHook(cPluginManager.HOOK_PLAYER_DESTROYED, OnPlayerDestroyed)
 	cPluginManager:AddHook(cPluginManager.HOOK_WORLD_TICK, OnWorldTick)
@@ -9,7 +10,7 @@ function Initialize(Plugin)
 	dofile(cPluginManager:GetPluginsPath() .. "/InfoReg.lua")
 	RegisterPluginInfoCommands()
 
-	LOG("Initialised " .. Plugin:GetName())
+	LOG("Initialised " .. Plugin:GetName() .. " v." .. Plugin:GetVersion())
 	return true
 end
 
