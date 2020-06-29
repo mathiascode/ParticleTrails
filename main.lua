@@ -56,9 +56,21 @@ function OnWorldTick(World, TimeDelta)
 		function(Player)
 			-- Creates particles around the player
 			if ParticlePlayers[Player:GetUUID()] == "note" then
-				Player:GetWorld():BroadcastParticleEffect("note", Player:GetPosX(), Player:GetPosY(), Player:GetPosZ(), 0.5, 1, 0.5, math.random(1, 16), 10)
+				Player:GetWorld():BroadcastParticleEffect(
+					"note",
+					Vector3f(Player:GetPosition()),
+					Vector3f(0.5, 1, 0.5),
+					math.random(1, 16),
+					10
+				)
 			elseif ParticlePlayers[Player:GetUUID()] ~= nil then
-				Player:GetWorld():BroadcastParticleEffect(ParticlePlayers[Player:GetUUID()], Player:GetPosX(), Player:GetPosY(), Player:GetPosZ(), 0.5, 1, 0.5, 0, 10)
+				Player:GetWorld():BroadcastParticleEffect(
+					ParticlePlayers[Player:GetUUID()],
+					Vector3f(Player:GetPosition()),
+					Vector3f(0.5, 1, 0.5),
+					0,
+					10
+				)
 			end
 		end
 	)
